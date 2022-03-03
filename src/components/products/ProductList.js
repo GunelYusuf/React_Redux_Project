@@ -37,12 +37,8 @@ class ProductList extends Component {
                   <td>{product.quantityPerUnit}</td>
                   <td>{product.unitsInStock}</td>
                 </tr>
-
                 ))}
-
-
-                
-              </tbody>
+             </tbody>
             </Table>
           </div>
         );
