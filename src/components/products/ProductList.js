@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import {bindActionCreators} from "redux";
 import * as productActions from '../../redux/actions/productActions'
 
-
 class ProductList extends Component {
   componentDidMount(){
     this.props.actions.getProducts();
