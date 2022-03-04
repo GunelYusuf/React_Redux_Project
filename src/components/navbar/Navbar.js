@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import Basket from '../basket/Basket';
 
 
 class Navbar extends Component {
@@ -206,85 +207,7 @@ class Navbar extends Component {
                                                         <button><i className="icon ion-android-search"></i></button>
                                               </form>
                                             </div>
-                                            <div className="header-cart">
-                                                <div className="cart-btn">
-                                                    <a href="#">
-                                                        <i className="icon ion-bag"></i>
-                                                        <span className="text">Cart :</span>
-                                                        <span className="total">$0.00</span>
-                                                        <span className="count">0</span>
-                                                    </a>
-                                                </div>
-                                                <div className="mini-cart">
-                                                    <ul className="cart-items">
-                                                        <li>
-                                                            <div className="single-cart-item d-flex">
-                                                                <div className="cart-item-thumb">
-                                                                    <a href="single-product.html"><img
-                                                                        src="assets/images/product-cart/cart-1.jpg"
-                                                                        alt="product"/></a>
-                                                                    <span className="product-quantity">1x</span>
-                                                                </div>
-                                                                <div className="cart-item-content media-body">
-                                                                    <h5 className="product-name"><a
-                                                                        href="single-product.html">New Balance Fresh
-                                                                        Foam LAZR</a></h5>
-                                                                    <span className="product-price">€18.90</span>
-                                                                    <span
-                                                                        className="product-color"><strong>Color:</strong> White</span>
-                                                                    <a href="#" className="product-close"><i
-                                                                        className="fal fa-times"></i></a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div className="single-cart-item d-flex">
-                                                                <div className="cart-item-thumb">
-                                                                    <a href="single-product.html"><img
-                                                                        src="assets/images/product-cart/cart-2.jpg"
-                                                                        alt="product"/></a>
-                                                                    <span className="product-quantity">3x</span>
-                                                                </div>
-                                                                <div className="cart-item-content media-body">
-                                                                    <h5 className="product-name"><a
-                                                                        href="single-product.html">New Balance Fresh
-                                                                        Foam LAZR</a></h5>
-                                                                    <span className="product-price">€18.90</span>
-                                                                    <span
-                                                                        className="product-color"><strong>Color:</strong> White</span>
-                                                                    <a href="#" className="product-close"><i
-                                                                        className="fal fa-times"></i></a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                    <div className="price_content">
-                                                        <div className="cart-subtotals">
-                                                            <div className="products price_inline">
-                                                                <span className="label">Subtotal</span>
-                                                                <span className="value">€30.80</span>
-                                                            </div>
-                                                            <div className="shipping price_inline">
-                                                                <span className="label">Shipping</span>
-                                                                <span className="value">€7.00</span>
-                                                            </div>
-                                                            <div className="tax price_inline">
-                                                                <span className="label">Taxes</span>
-                                                                <span className="value">€0.00</span>
-                                                            </div>
-                                                        </div>
-                                                        <div className="cart-total price_inline">
-                                                            <span className="label">Total</span>
-                                                            <span className="value">€37.80</span>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="checkout text-center">
-                                                        <a href="checkout.html" className="main-btn">Checkout</a>
-                                                    </div>
-                                                </div>
-
-                                            </div>
+                                          <Basket></Basket>
                                         </div>
 
                                     </div>

@@ -11,7 +11,7 @@ class ProductList extends Component {
   }
   addToBasket = (product) => {
     this.props.actions.addToBasket({ quantity: 1, product })
-    alertify.success(product.productName + "add to Basket");
+    alertify.success(product.productName + " add to Basket");
   };
   render() {
     return (
