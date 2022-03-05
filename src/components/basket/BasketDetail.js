@@ -152,7 +152,7 @@ class BasketDetail extends Component {
 function mapStateToProps(state) {
   return {
     basket: state.basketReducer
-  };
+  }
 }
 function mapDispatchToProps(dispatch) {
   return {
@@ -160,9 +160,9 @@ function mapDispatchToProps(dispatch) {
       removeFromBasket: bindActionCreators(
         basketActions.removeFromBasket,
         dispatch
-      ),
-    },
+      )
+    }
   };
 }
 
-export default connect(mapDispatchToProps, mapStateToProps)(BasketDetail);
+export default connect( mapStateToProps,mapDispatchToProps)(BasketDetail);
