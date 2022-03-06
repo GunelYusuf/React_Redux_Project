@@ -4,6 +4,7 @@ import { Button } from "reactstrap";
 import { bindActionCreators } from "redux";
 import * as basketActions from "../../redux/actions/basketActions";
 import alertify from "alertifyjs";
+import { Link } from "react-router-dom";
 class BasketDetail extends Component {
     removeFromBasket(product){
        this.props.actions.removeFromBasket(product);
@@ -77,12 +78,12 @@ class BasketDetail extends Component {
                           </td>
                           <td>
                             <div class="product-delete">
-                              <Button
+                              <Button color="danger"
                                 onClick={() =>
                                   this.removeFromBasket(cartItem.product)
                                 }
-                              >
-                                <i class="fal fa-trash-alt"></i>
+                              >Remove
+                                {/* <i class="fal fa-trash-alt"></i> */}
                               </Button>
                             </div>
                           </td>
