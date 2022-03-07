@@ -3,6 +3,8 @@ import Navbar from "../navbar/Navbar";
 import { Route,Routes } from 'react-router-dom';
 import Dashboard from "./Dashboard";
 import BasketDetail from '../basket/BasketDetail';
+import ProductDetail from '../products/ProductDetail';
+import AddOrUpdateProduct from '../products/AddOrUpdateProduct';
 
 
 function App() {
@@ -13,6 +15,7 @@ function App() {
         <Route path="/" exact element={<Dashboard/>} />
         <Route path="/product" exact element={<Dashboard/>} />
         <Route path="/basket" element={<BasketDetail/>} />
+        <Route path ="/saveproduct/:productId" element={<AddOrUpdateProduct/>}/>
       </Routes>
     </div>
   );

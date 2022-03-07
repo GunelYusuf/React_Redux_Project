@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import {getCategories} from '../../redux/actions/categoryActions';
-import {saveProduct} from '../../redux/actions/productActions';
+import { getCategories } from "../../redux/actions/categoryActions";
+import { saveProduct } from "../../redux/actions/productActions";
+import ProductDetail from "./ProductDetail";
 
 function AddOrUpdateProduct({
   products,
@@ -18,7 +19,7 @@ function AddOrUpdateProduct({
       getCategories();
     }
     setProduct({ ...props.product });
-  },[props.product]);
+  }, [props.product]);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -29,17 +30,42 @@ function AddOrUpdateProduct({
   }
 
   function handleSave(event) {
-      event.preventDefault();
-      saveProduct(product).then(() =>{
-          history.push('/');
-      })
-
+    event.preventDefault();
+    saveProduct(product).then(() => {
+      history.push("/");
+    });
   }
-
+  return (
+    <ProductDetail
+      product={product}
+      categories={categories}
+      onChange={handleChange}
+      onSave={handleSave}
+    />
+  );
 }
 
-const mapDispatchToProps={
-    getCategories,saveProduct
+export function getProductById(products, productId) {
+  let product = products.find((product) => product.id === productId) || null;
+  return product;
 }
 
-export default connect(mapDispatchToProps)(AddOrUpdateProduct)
+function mapStateToProps(state, ownProps) {
+  const productId = ownProps.match.params.productId;
+  const product =
+    productId && state.productReducer.length > 0
+      ? getProductById(state.productReducer, productId)
+      : {};
+  return {
+    product,
+    products: state.productListReducer,
+    categories: state.categoryListReducer,
+  };
+}
+
+const mapDispatchToProps = {
+  getCategories,
+  saveProduct,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddOrUpdateProduct);
