@@ -18,9 +18,9 @@ class Navbar extends Component {
                                     </div>
                                     <div className="header-menu-nav">
                                         <ul className="menu-nav">
-                                            <li><Link to="compare.html"><i className="fal fa-repeat"></i> Compare (0)</Link>
+                                            <li><Link to="/saveproduct"><i className="fal fa-repeat"></i>Add Product</Link>
                                             </li>
-                                            <li><Link to="wishlist.html"><i className="fal fa-heart"></i> Wishlist(0)</Link>
+                                            <li><Link to="/"><i className="fal fa-heart"></i> Wishlist(0)</Link>
                                             </li>
                                             <li>
                                                 <div className="dropdown">

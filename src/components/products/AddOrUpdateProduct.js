@@ -14,6 +14,7 @@ function AddOrUpdateProduct({
   ...props
 }) {
   const [product, setProduct] = useState({ ...props.product });
+  const [errors, setErrors] = useState({});
   useEffect(() => {
     if (categories.length === 0) {
       getCategories();
@@ -27,7 +28,23 @@ function AddOrUpdateProduct({
       ...previousProduct,
       [name]: name === "categoryId" ? parseInt(value, 10) : value,
     }));
+  
+      validate(name,value);
   }
+
+function validate(name,value) {
+     if (name === "productName" && value === "") {
+      setErrors((previousError) => ({
+        ...previousError,
+        productName: "product name must be",
+      }));
+    }else{
+        setErrors((previousError) => ({
+          ...previousError,
+          productName: "",
+        }));
+    }
+}
 
   function handleSave(event) {
     event.preventDefault();
@@ -41,20 +58,21 @@ function AddOrUpdateProduct({
       categories={categories}
       onChange={handleChange}
       onSave={handleSave}
+      errors={errors}
     />
   );
 }
 
 export function getProductById(products, productId) {
-  let product = products.find((product) => product.id === productId) || null;
+  let product = products.find((product) => product.id == productId) || null;
   return product;
 }
 
 function mapStateToProps(state, ownProps) {
   const productId = ownProps.match.params.productId;
   const product =
-    productId && state.productReducer.length > 0
-      ? getProductById(state.productReducer, productId)
+    productId && state.productListReducer.length > 0
+      ? getProductById(state.productListReducer, productId)
       : {};
   return {
     product,
